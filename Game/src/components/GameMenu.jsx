@@ -11,7 +11,7 @@ export default function GameMenu() {
   useEffect(() => {
     const fetchGameHistory = async () => {
       try {
-        const response = await fetch("https://simpcrick8-back.onrender.com/game-history/last-three")
+        const response = await fetch("https://simpcrick8-backend.onrender.com/game-history/last-three")
         const data = await response.json()
 
         if (data.success) {
