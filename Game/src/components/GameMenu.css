@@ -2,7 +2,7 @@
 .game-menu-container {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a40 0%, #2e2e5e 50%, #4b0082 100%);
+  background: linear-gradient(135deg, #000000 0%, #171724 50%, #000000 100%);
   overflow: hidden;
 }
 
