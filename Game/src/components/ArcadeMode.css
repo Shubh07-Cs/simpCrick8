@@ -1,0 +1,224 @@
+.arcade-container {
+    min-height: 100vh;
+    background:  #136d15;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 1rem; */
+}
+
+.home-button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.match-heading {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.score-display {
+    color: white;
+    font-weight: bold;
+}
+
+.cricket-field {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 400px;
+    background-color: #d4b996;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pitch {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.batsman,
+.bowler {
+    width: 32px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+.batsman {
+    background-color: #3b82f6;
+}
+
+.bowler {
+    background-color: white;
+}
+
+.ball-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* .ball {
+    width: 16px;
+    height: 16px;
+    background-color: red;
+    border-radius: 50%;
+    animation: bounce 0.5s ease-in-out infinite alternate; /* Default, overridden by inline style 
+} 
+    */
+
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+.game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    /* animation: fadeIn 1s ease-in-out; */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.play-again-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.play-again-button {
+    background-color: #ff4500;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.play-again-button:hover {
+    background-color: #ff6347;
+}
+
+.game-info {
+    display: flex;
+    gap: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.speed-indicator {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #000;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.score-options-container {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.score-options {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.pointer {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid white;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 10;
+    /* Transition is now handled via inline style */
+}
+
+.score-button {
+    height: 96px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.orange { background-color: orange; }
+.yellow { background-color: yellow; }
+.blue { background-color: blue; }
+.emerald { background-color: #50c878; }
+.red { background-color: red; }
+.gray { background-color: gray; }
+.pink { background-color: pink; }
+
+.score-display-animation {
+    width: 40px;
+    height: 60px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    /*animation: bounce 0.5s ease-in-out infinite alternate; /* Reuse bounce animation */
+  }
