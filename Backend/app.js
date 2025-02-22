@@ -23,7 +23,7 @@ app.use(
     cors({
         origin: allowedOrigins ,
         credentials: true,
-        // origin: process.env.FRONTEND_URL,
+    
     })
 );//it will only allow frontend to to talk with my backend
 
