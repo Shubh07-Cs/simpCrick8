@@ -33,7 +33,7 @@ export default function GameMenu() {
       <div className="game-menu">
         {/* Logo with Animation */}
         <div className="logo-container">
-          <img src="/images/628.jpg" alt="Super Over Logo" className="logo-image" />
+          <img src="/images/Since 1990.png" alt="Super Over Logo" className="logo-image" />
           <h1 className="logo-title">Super Over</h1>
         </div>
 
