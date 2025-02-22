@@ -256,9 +256,9 @@
   }
 }
 
-.logo-container:hover {
+/* .logo-container:hover {
   animation: heartbeat 1s infinite;
-}
+} */
 
 .game-category-card::after {
   /* content: ; */
