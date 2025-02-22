@@ -14,9 +14,14 @@ const app = express();//we created a server using express
 app.use(morgan("dev"));
 
 /*Connecting Backend to Frontend*/
+const allowedOrigins = [
+    "http://localhost:5173",   // Local frontend for testing
+    "https://simpcrick8.onrender.com" // Deployed frontend
+  ];
+
 app.use(
     cors({
-        // origin: "https://simp-crick8.vercel.app/" ,
+        origin: allowedOrigins ,
         credentials: true,
         origin: process.env.FRONTEND_URL,
     })
