@@ -29,24 +29,32 @@
   z-index: 0;
 }
 
-@keyframes float {
+/* @keyframes float {
   0% {
     background-position: 0 0;
   }
   100% {
     background-position: 100px 100px;
   }
+} */
+@keyframes bounceSmooth {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-50px); } /* Adjust height as needed */
+  100% { transform: translateY(0); }
 }
+
+
+
 
 /* Logo */
 .logo-container {
-  background: rgba(255, 255, 255, 0.8);
+  background-image: url("/images/Since 1990.png");
   padding: 20px;
   border-radius: 50%;
   box-shadow: 0 0 20px ;
   margin-bottom: 3rem;
   text-align: center;
-  animation: bounce 2s ease-in-out infinite;
+  animation: bounceSmooth 3s ease-in-out infinite;
   z-index: 1;
 }
 
