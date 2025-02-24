@@ -4,6 +4,8 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #000000 0%, #3c323c 50%, #000000 100%);
   overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
+  /* New glow effect */
 }
 
 .game-menu {
@@ -14,6 +16,8 @@
   justify-content: center;
   padding: 20px;
   position: relative;
+  backdrop-filter: blur(5px);
+   /* New */
 }
 
 /* Animated Background */
@@ -29,14 +33,7 @@
   z-index: 0;
 }
 
-/* @keyframes float {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100px 100px;
-  }
-} */
+
 @keyframes bounceSmooth {
   0% { transform: translateY(0); }
   50% { transform: translateY(-15px); } /* Adjust height as needed */
@@ -127,6 +124,7 @@
 .game-category-card:hover {
   box-shadow: 0 12px 30px rgba(255, 105, 180, 0.4);
   transform: translateY(-5px);
+  transform: translateY(-8px); /* Slightly more pronounced hover effect */
 }
 
 .arcade-card {
@@ -188,7 +186,7 @@
   padding: 0.8rem;
   border-radius: 50%;
   color: #ff69b4;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease; 
 }
 
 .settings-button:hover,
@@ -200,11 +198,18 @@
 /* Game History Sidebar */
 .game-history-sidebar {
   width: 300px;
-  /* background: rgba(); */
+  background: rgba(255, 255, 255, 0.1); /* Added slight transparency */
   padding: 20px;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2); /* Darker shadow */
+  border-left: 2px solid rgba(255, 255, 255, 0.2); /* Soft divider */
   overflow-y: auto;
   max-height: 100vh;
+}
+
+.history-button{
+  background: transparent;
+  border: transparent;
+   ;
 }
 
 .game-history-title {
@@ -226,10 +231,19 @@
   margin-bottom: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  font-weight: bold; /* New */
 }
 
 .game-history-item:hover {
   transform: translateY(-3px);
+}
+
+.game-history-item.win {
+  border-left: 6px solid #4caf50; /* Green for wins */
+}
+
+.game-history-item.lose {
+  border-left: 6px solid #f44336; /* Red for losses */
 }
 
 .no-history {
@@ -239,18 +253,19 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .game-menu-container {
     flex-direction: column;
   }
 
   .game-history-sidebar {
     width: 100%;
-    max-height: 300px;
+    max-height: 250px;
   }
 
   .game-categories-container {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 
 export default function GameMenu() {
   const [gameHistory, setGameHistory] = useState([])
+  const [showHistory, setShowHistory] = useState(false) // Added state for dropdown visibility
 
   useEffect(() => {
     const fetchGameHistory = async () => {
@@ -71,32 +72,40 @@ export default function GameMenu() {
         </div>
       </div>
 
-      {/* Game History Sidebar */}
-      <aside className="game-history-sidebar">
-        <h2 className="game-history-title">Last 5 Games</h2>
-        {gameHistory.length === 0 ? (
-          <p className="no-history">No games played yet.</p>
-        ) : (
-          <ul className="game-history-list">
-            {gameHistory.map((game, index) => {
-              const result = game.currentScore >= game.targetScore ? "Win 🎉" : "Lose ❌"
+      {/* History Button (NEW) */}
+      <button className="history-button" onClick={() => setShowHistory(!showHistory)}>
+          📜
+        </button>
 
-              return (
-                <li key={index} className="game-history-item">
-                  <strong>{game.myTeam}</strong> vs <strong>{game.opponentTeam}</strong>
-                  <br />
-                  Score: {game.currentScore}/{game.targetScore}
-                  <br />
-                  Balls Remaining: {game.ballsRemaining}
-                  <br />
-                  Result: <b>{result}</b>
-                </li>
-              )
-            })}
-          </ul>
+       {/* Dropdown History Menu (NEW) */}
+       {showHistory && (
+          <div className="game-history-dropdown">
+            <h3 className="game-history-title">Last 5 Games</h3>
+            {gameHistory.length === 0 ? (
+              <p className="no-history">No games played yet.</p>
+            ) : (
+              <ul className="game-history-list">
+                {gameHistory.map((game, index) => {
+                  const result = game.currentScore >= game.targetScore ? "Win 🎉" : "Lose ❌"
+
+                  return (
+                    <li key={index} className="game-history-item">
+                      <strong>{game.myTeam}</strong> vs <strong>{game.opponentTeam}</strong>
+                      <br />
+                      Score: {game.currentScore}/{game.targetScore}
+                      <br />
+                      Balls Remaining: {game.ballsRemaining}
+                      <br />
+                      Result: <b>{result}</b>
+                    </li>
+                  )
+                })}
+              </ul>
+            )}
+          </div>
         )}
-      </aside>
-    </div>
+      </div>
+    
   )
 }
 
