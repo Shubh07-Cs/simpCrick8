@@ -34,7 +34,7 @@ export default function GameMenu() {
       <div className="game-menu">
         {/* Logo with Animation */}
         <div className="logo-container">
-          <img src="/images/Since 1990.png" alt="Super Over Logo" className="logo-image" />
+          <img src="/images/Since 1990.png" alt="Simple Cricket" className="logo-image" />
         </div>
 
         {/* Game Modes Grid */}
@@ -65,9 +65,9 @@ export default function GameMenu() {
           <button className="settings-button">
             <Settings className="w-8 h-8" />
           </button>
-          <button className="help-button">
+          {/* <button className="help-button">
             <HelpCircle className="w-8 h-8" />
-          </button>
+          </button> --shifted to arcade page*/}
         </div>
       </div>
 

@@ -166,11 +166,15 @@
 }
 
 .score-options-container {
-    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     max-width: 400px;
     width: 100%;
     /* margin-top: 10px; */
     cursor: pointer;
+    border-style:inset;
+    border-radius: 8px;
 }
 
 .score-options {
@@ -222,3 +226,16 @@
     font-weight: bold;
     /*animation: bounce 0.5s ease-in-out infinite alternate; /* Reuse bounce animation */
   }
+
+.adding-help{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 100px;
+    align-items: flex-end;
+}
+
+.help-button-container{
+    margin-left: auto;
+    
+}

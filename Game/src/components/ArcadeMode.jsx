@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { HelpCircle } from "lucide-react";
+
 import "./ArcadeMode.css";
 
 
@@ -236,25 +238,32 @@ export default function ArcadeGame() {
       </div>
 
       <div className="speed-indicator">{gameState.ballSpeed}</div>
+      <div className="adding-help">
+        <div className="score-options-container" onClick={handlePointerStop}>
+          <div
+            className="pointer"
+            style={{
+              left: `${(gameState.pointerPosition * 100) / scoreOptions.length}%`,
+              width: `${100 / scoreOptions.length}%`,
+              transition: gameState.ballSpeed === "FAST" ? "left 0.1s ease-in-out" : "left 0.2s ease-in-out"
+            }}
+          />
+          <div className="score-options">
+            {scoreOptions.map((option, index) => (
+              <div
+                key={index}
+                className={`score-button ${option.color}`}
+              >
+                {option.value}
+              </div>
+            ))}
+          </div>
 
-      <div className="score-options-container" onClick={handlePointerStop}>
-        <div
-          className="pointer"
-          style={{
-            left: `${(gameState.pointerPosition * 100) / scoreOptions.length}%`,
-            width: `${100 / scoreOptions.length}%`,
-            transition: gameState.ballSpeed === "FAST" ? "left 0.1s ease-in-out" : "left 0.2s ease-in-out"
-          }}
-        />
-        <div className="score-options">
-          {scoreOptions.map((option, index) => (
-            <div
-              key={index}
-              className={`score-button ${option.color}`}
-            >
-              {option.value}
-            </div>
-          ))}
+        </div>
+        <div className="help-button-container">
+          <button className="help-button">
+            <HelpCircle className="w-8 h-8" />
+          </button>
         </div>
       </div>
 
