@@ -1,6 +1,6 @@
 .arcade-container {
     min-height: 100vh;
-    background:  #136d15;
+    background: #136d15;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,6 +97,7 @@
     from {
         transform: translateY(0);
     }
+
     to {
         transform: translateY(-20px);
     }
@@ -121,6 +122,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -173,8 +175,10 @@
     width: 100%;
     /* margin-top: 10px; */
     cursor: pointer;
-    border-style:inset;
+    border-style: inset;
     border-radius: 8px;
+    border: 3px solid white;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); 
 }
 
 .score-options {
@@ -206,18 +210,38 @@
     user-select: none;
 }
 
-.orange { background-color: orange; }
-.yellow { background-color: yellow; }
-.blue { background-color: blue; }
-.emerald { background-color: #50c878; }
-.red { background-color: red; }
-.gray { background-color: gray; }
-.pink { background-color: pink; }
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.emerald {
+    background-color: #50c878;
+}
+
+.red {
+    background-color: red;
+}
+
+.gray {
+    background-color: gray;
+}
+
+.pink {
+    background-color: pink;
+}
 
 .score-display-animation {
     width: 40px;
     height: 60px;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -225,9 +249,9 @@
     font-size: 1.5rem;
     font-weight: bold;
     /*animation: bounce 0.5s ease-in-out infinite alternate; /* Reuse bounce animation */
-  }
+}
 
-.adding-help{
+.adding-help {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -235,7 +259,28 @@
     align-items: flex-end;
 }
 
-.help-button-container{
+.help-button-container {
     margin-left: auto;
-    
+    display: inline-block;
+}
+
+.popup {
+
+    z-index: 10;
+    position: relative;
+    transform: translateX(-50%);
+    right: 50%;
+    animation: fadeSlideIn 0.3s ease-in-out;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

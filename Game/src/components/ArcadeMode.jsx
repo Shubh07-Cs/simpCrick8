@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HelpCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 import "./ArcadeMode.css";
 
@@ -50,9 +51,11 @@ const scoreOptions = [
 
 const speeds = ["FAST", "MEDIUM", "SLOW"];
 
+
 export default function ArcadeGame() {
   const [myTeam, setMyTeam] = useState(null);
   const [opponentTeam, setOpponentTeam] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
   const [gameState, setGameState] = useState({
     targetScore: 0,
     currentScore: 0,
@@ -261,9 +264,18 @@ export default function ArcadeGame() {
 
         </div>
         <div className="help-button-container">
-          <button className="help-button">
+          <button className="help-button" onClick={() => setShowPopup(!showPopup)}>
             <HelpCircle className="w-8 h-8" />
           </button>
+          {showPopup && (
+          <motion.div 
+            className="popup"
+            animate={{ opacity: 1, y: 0 }}  
+            transition={{ duration: 0.3 }} 
+          >
+            Tap inside Glowing box
+          </motion.div>
+        )}
         </div>
       </div>
 

@@ -38,8 +38,34 @@ app.get("/", (req, res) => {
     res.send("Server is working fine... ");
 })
 
+// app.get("/check-name/:playerName", async (req, res) => {
+//     try {
+//         const { playerName } = req.params;
+//         const existingPlayer = await GameHistory.findOne({ playerName });
 
-//this part is not working
+//         if (existingPlayer) {
+//             return res.status(400).json({ success: false, message: "Name already taken!" });
+//         }
+
+//         res.status(200).json({ success: true, message: "Name is available!" });
+//     } catch (error) {
+//         res.status(500).json({ success: false, message: "Error checking name", error });
+//     }
+// });
+
+// app.get("/game-history/:playerName", async (req, res) => {
+//     try {
+//         const { playerName } = req.params;
+//         const lastGames = await GameHistory.find({ playerName }).sort({ _id: -1 }).limit(5);
+        
+//         res.status(200).json({ success: true, games: lastGames });
+//     } catch (error) {
+//         res.status(500).json({ success: false, message: "Error fetching game history", error });
+//     }
+// });
+
+
+
 app.get("/game-history/last-three", async (req, res) => {
     try {
         const lastGames = await GameHistory.find().sort({ _id: -1 }).limit(5);
@@ -58,31 +84,27 @@ app.get("/game-history/last-three", async (req, res) => {
     }
 });
 
-//not working
 app.post("/game-history/save", async (req, res) => {
     try {
         console.log(req.body);
         const { myTeam, opponentTeam, targetScore, currentScore, ballsRemaining } = req.body;
 
-        const newGame = new GameHistory({ myTeam, opponentTeam, targetScore, currentScore, ballsRemaining });
+        // Check if the name exists
+        // const existingPlayer = await GameHistory.findOne({ playerName });
+        // if (!existingPlayer) {
+        //     return res.status(400).json({ success: false, message: "Invalid player name!" });
+        // }
+
+        const newGame = new GameHistory({  myTeam, opponentTeam, targetScore, currentScore, ballsRemaining });
         await newGame.save();
 
-        res.status(201)
-        .json({
-            success: true,
-            message: "Game history saved successfully!"
-        });
+        res.status(201).json({ success: true, message: "Game history saved successfully!" });
     } catch (error) {
         console.log(error.message);
-
-        res.status(500)
-        .json({
-            success: false,
-            message: "Error saving game history",
-            error
-        });
+        res.status(500).json({ success: false, message: "Error saving game history", error });
     }
 });
+
 
 
 app.listen(PORT, () => {

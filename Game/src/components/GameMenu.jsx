@@ -6,8 +6,9 @@ import "./GameMenu.css"
 import { Link } from "react-router-dom"
 
 export default function GameMenu() {
-  const [gameHistory, setGameHistory] = useState([])
-  const [showHistory, setShowHistory] = useState(false) // Added state for dropdown visibility
+  const [gameHistory, setGameHistory] = useState([]);
+  const [showHistory, setShowHistory] = useState(false); // Added state for dropdown visibility
+  // const [playerName, setPlayerName] = useState("");
 
   useEffect(() => {
     const fetchGameHistory = async () => {
@@ -27,6 +28,39 @@ export default function GameMenu() {
 
     fetchGameHistory()
   }, [])
+
+//   useEffect(() => {
+//     const askForName = async () => {
+//         let name = localStorage.getItem("playerName");
+
+//         if (!name) {
+//             while (true) {
+//                 name = prompt("Enter your unique name:");
+//                 if (!name) {
+//                     alert("Name is required!");
+//                     continue;
+//                 }
+
+//                 // Check if name is unique
+//                 const response = await fetch(`https://simpcrick8-backend.onrender.com/check-name/${name}`);
+//                 const data = await response.json();
+
+//                 if (!data.success) {
+//                     alert("This name is already taken. Choose another.");
+//                 } else {
+//                     localStorage.setItem("playerName", name);
+//                     setPlayerName(name);
+//                     alert(`Your name is set to: ${name}`);
+//                     break;
+//                 }
+//             }
+//         } else {
+//             setPlayerName(name);
+//         }
+//     };
+
+//     askForName();
+// }, []);
 
   return (
     <div className="game-menu-container">
@@ -65,9 +99,7 @@ export default function GameMenu() {
           <button className="settings-button">
             <Settings className="w-8 h-8" />
           </button>
-          {/* <button className="help-button">
-            <HelpCircle className="w-8 h-8" />
-          </button> --shifted to arcade page*/}
+         
         </div>
       </div>
 
@@ -75,11 +107,6 @@ export default function GameMenu() {
       <button className="history-button" onClick={() => setShowHistory(!showHistory)}>
   📜
 </button>
-
-      {/* <button class="history-button" onclick="toggleSidebar()">📜</button> */}
-
-
-      {/* Dropdown History Menu (NEW) */}
       {showHistory && (
         <div className="game-history-dropdown">
           <h3 className="game-history-title">Last 5 Games</h3>
