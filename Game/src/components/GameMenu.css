@@ -206,11 +206,24 @@
   max-height: 100vh;
 }
 
-.history-button{
+
+.history-button {
   background: transparent;
   border: transparent;
-   ;
+  position: absolute; /* Keep it absolute so it moves with the parent */
+  top: 70px;
+  right: 20px;
+  font-size: 2rem;
+  transition: right 0.3s ease-in-out; /* Smooth transition */
+  z-index: 5;
 }
+
+/* When sidebar is open */
+.sidebar-open .history-button {
+  right: 270px; /* Adjust based on sidebar width */
+}
+
+
 
 .game-history-title {
   font-size: 1.5rem;
@@ -238,12 +251,23 @@
   transform: translateY(-3px);
 }
 
-.game-history-item.win {
+.game-history-item.win-result {
   border-left: 6px solid #4caf50; /* Green for wins */
 }
 
-.game-history-item.lose {
+.game-history-item.lose-result {
   border-left: 6px solid #f44336; /* Red for losses */
+}
+
+
+.win-result {
+  font-weight: bold;
+  color: #28a745; /* Green for win */
+}
+
+.lose-result {
+  font-weight: bold;
+  color: #dc3545; /* Red for loss */
 }
 
 .no-history {
@@ -318,3 +342,14 @@
   }
 }
 
+.game-history-dropdown {
+  position: fixed;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  transition: right 0.3s ease-in-out;
+}
+
+.game-history-dropdown.open {
+  right: 60px; 
+}

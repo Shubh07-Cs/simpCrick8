@@ -74,38 +74,42 @@ export default function GameMenu() {
 
       {/* History Button (NEW) */}
       <button className="history-button" onClick={() => setShowHistory(!showHistory)}>
-          📜
-        </button>
+  📜
+</button>
 
-       {/* Dropdown History Menu (NEW) */}
-       {showHistory && (
-          <div className="game-history-dropdown">
-            <h3 className="game-history-title">Last 5 Games</h3>
-            {gameHistory.length === 0 ? (
-              <p className="no-history">No games played yet.</p>
-            ) : (
-              <ul className="game-history-list">
-                {gameHistory.map((game, index) => {
-                  const result = game.currentScore >= game.targetScore ? "Win 🎉" : "Lose ❌"
+      {/* <button class="history-button" onclick="toggleSidebar()">📜</button> */}
 
-                  return (
-                    <li key={index} className="game-history-item">
-                      <strong>{game.myTeam}</strong> vs <strong>{game.opponentTeam}</strong>
-                      <br />
-                      Score: {game.currentScore}/{game.targetScore}
-                      <br />
-                      Balls Remaining: {game.ballsRemaining}
-                      <br />
-                      Result: <b>{result}</b>
-                    </li>
-                  )
-                })}
-              </ul>
-            )}
-          </div>
-        )}
-      </div>
-    
+
+      {/* Dropdown History Menu (NEW) */}
+      {showHistory && (
+        <div className="game-history-dropdown">
+          <h3 className="game-history-title">Last 5 Games</h3>
+          {gameHistory.length === 0 ? (
+            <p className="no-history">No games played yet.</p>
+          ) : (
+            <ul className="game-history-list">
+              {gameHistory.map((game, index) => {
+                const isWin = game.currentScore >= game.targetScore
+                const resultClass = isWin ? "win-result" : "lose-result"
+            
+                return (
+                  <li key={index} className="game-history-item">
+                    <strong>{game.myTeam}</strong> vs <strong>{game.opponentTeam}</strong>
+                    <br />
+                    Score: {game.currentScore}/{game.targetScore}
+                    <br />
+                    Balls Remaining: {game.ballsRemaining}
+                    <br />
+                    Result: <b className={resultClass}>{isWin ? "Win 😀" : "Lose 😭"}</b>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+        </div>
+      )}
+    </div>
+
   )
 }
 
