@@ -264,10 +264,7 @@ export default function ArcadeGame() {
 
         </div>
         <div className="help-button-container">
-          <button className="help-button" onClick={() => setShowPopup(!showPopup)}>
-            <HelpCircle className="w-8 h-8" />
-          </button>
-          {showPopup && (
+        {showPopup && (
           <motion.div 
             className="popup"
             animate={{ opacity: 1, y: 0 }}  
@@ -276,6 +273,11 @@ export default function ArcadeGame() {
             Tap inside Glowing box
           </motion.div>
         )}
+        <br />
+          <button className="help-button" onClick={() => setShowPopup(!showPopup)}>
+            <HelpCircle className="w-8 h-8" />
+          </button>
+          
         </div>
       </div>
 
